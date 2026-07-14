@@ -30,8 +30,7 @@ public static class DatabaseModifier
     {
         if (added) return;
         
-        M_Gamemode endlessBase = __instance.baseDatabase.gamemodeAssets.First((x) => x.name == "GM_Endless_Pipeworks");
-        M_Gamemode endlessBase2 = __instance.baseDatabase.gamemodeAssets.First((x) => x.name == "GM_Endless_Habitation");
+        M_Gamemode endlessBase = __instance.baseDatabase.gamemodeAssets.First((x) => x.name == "GM_Endless_Cheatrooms");
 
         M_Gamemode gm = ScriptableObject.CreateInstance<M_Gamemode>();
         gm.allowAchievements = false;
@@ -44,8 +43,8 @@ public static class DatabaseModifier
         gm.useGamemodeSettings = true;
         gm.modeType = M_Gamemode.GameType.standard;
         gm.capsuleName = "";
-        gm.capsuleArt = endlessBase2.capsuleArt;
-        gm.gamemodeName = "Cheatrooms";
+        gm.capsuleArt = endlessBase.capsuleArt;
+        gm.gamemodeName = "GM_Cheatrooms";
         gm.introText = "";
         gm.isEndless = true;
         gm.hasPerks = false;
@@ -105,7 +104,7 @@ public static class DatabaseModifier
         gm.playlistLevelAssets = endlessBase.playlistLevelAssets;
         gm.playlistLevels = endlessBase.playlistLevels;
         gm.roachEndSprite = endlessBase.roachEndSprite;
-        gm.screenArt = endlessBase2.screenArt;
+        gm.screenArt = endlessBase.screenArt;
         gm.gamemodeObjects = endlessBase.gamemodeObjects;
         gm.unlockHint = endlessBase.unlockHint;
 
