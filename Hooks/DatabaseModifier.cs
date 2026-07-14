@@ -32,7 +32,7 @@ public static class DatabaseModifier
         
         M_Gamemode endlessBase = __instance.baseDatabase.gamemodeAssets.First((x) => x.name == "GM_Cheatrooms");
 
-        M_Gamemode endlessBase = ScriptableObject.CreateInstance<M_Gamemode>();
+        M_Gamemode gm = endlessBase;
         gm.allowAchievements = false;
         gm.allowCheatedScores = false;
         gm.allowCheats = false;
