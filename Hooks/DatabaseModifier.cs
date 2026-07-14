@@ -30,7 +30,7 @@ public static class DatabaseModifier
     {
         if (added) return;
         
-        M_Gamemode endlessBase = __instance.baseDatabase.gamemodeAssets.First((x) => x.name == "GM_Endless_Cheatrooms");
+        M_Gamemode endlessBase = __instance.baseDatabase.gamemodeAssets.First((x) => x.name == "Region_Endless_Cheatrooms");
 
         M_Gamemode gm = ScriptableObject.CreateInstance<M_Gamemode>();
         gm.allowAchievements = false;
@@ -44,50 +44,50 @@ public static class DatabaseModifier
         gm.modeType = M_Gamemode.GameType.standard;
         gm.capsuleName = "";
         gm.capsuleArt = endlessBase.capsuleArt;
-        gm.gamemodeName = "GM_Cheatrooms";
+        gm.gamemodeName = "Region_Endless_Cheatrooms";
         gm.introText = "";
         gm.isEndless = true;
         gm.hasPerks = false;
         gm.hasRevives = false;
-        gm.name = "GM_Cheatrooms";
+        gm.name = "Region_Endless_Cheatrooms";
         gm.newGameText = "Start Run";
         
         gm.startItems = [
         ];
         
-        gm.regions = [
-            new M_Region() {
-                regionName = "Cheatrooms",
-                startLevelReferences = [
-                    GetLevelAsset("B1_Backrooms_Intro", __instance.baseDatabase)
-                ],
-                regionOrder = M_Region.RegionOrder.playlist,
-                useRegionHeight = false,
-                subregionGroups = [
-                    new M_Region.SubregionGroup() {
-                        subregions = [
-                            new M_Subregion() {
-                                subregionName = "His Domain",
-                                name = "HisDomain",
-                                useSubregionHeight = false,
-                                useLevelCount = false,
-                                announcementGroups = [],
-                                flagBlacklist = [],
-                                flagWhitelist = [],
-                                subregionOrder = M_Subregion.SubregionOrder.standard,
-                                levelReferences = [
-                                    GetLevelAsset("B1_Backrooms_01", __instance.baseDatabase),
-                                    GetLevelAsset("B1_Backrooms_02", __instance.baseDatabase),
-                                    GetLevelAsset("B1_Backrooms_03", __instance.baseDatabase)
-                                ],
-                                sessionEventLists = [],
-                            }
-                        ]
-                    }
-                ],
-                sessionEventLists = [],
-            },
-        ];
+        // gm.regions = [
+        //     new M_Region() {
+        //         regionName = "Cheatrooms",
+        //         startLevelReferences = [
+        //             GetLevelAsset("B1_Backrooms_Intro", __instance.baseDatabase)
+        //         ],
+        //         regionOrder = M_Region.RegionOrder.playlist,
+        //         useRegionHeight = false,
+        //         subregionGroups = [
+        //             new M_Region.SubregionGroup() {
+        //                 subregions = [
+        //                     new M_Subregion() {
+        //                         subregionName = "His Domain",
+        //                         name = "HisDomain",
+        //                         useSubregionHeight = false,
+        //                         useLevelCount = false,
+        //                         announcementGroups = [],
+        //                         flagBlacklist = [],
+        //                         flagWhitelist = [],
+        //                         subregionOrder = M_Subregion.SubregionOrder.standard,
+        //                         levelReferences = [
+        //                             GetLevelAsset("B1_Backrooms_01", __instance.baseDatabase),
+        //                             GetLevelAsset("B1_Backrooms_02", __instance.baseDatabase),
+        //                             GetLevelAsset("B1_Backrooms_03", __instance.baseDatabase)
+        //                         ],
+        //                         sessionEventLists = [],
+        //                     }
+        //                 ]
+        //             }
+        //         ],
+        //         sessionEventLists = [],
+        //     },
+        // ];
 
         gm.gamemodeScene = endlessBase.gamemodeScene;
         gm.roachBankID = endlessBase.roachBankID;
@@ -108,7 +108,7 @@ public static class DatabaseModifier
         gm.gamemodeObjects = endlessBase.gamemodeObjects;
         gm.unlockHint = endlessBase.unlockHint;
 
-        __instance.baseDatabase.gamemodeAssets.Add(gm);
+        __instance.baseDatabase.gamemodeAssets.Add(gmD);
         Plugin.endlessServiceShaftGamemode = gm;
 
         added = true;
