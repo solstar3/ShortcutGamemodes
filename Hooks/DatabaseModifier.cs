@@ -6,17 +6,7 @@ using UnityEngine;
 namespace EndlessServiceShaft.Hooks;
 
 public static class DatabaseModifier
-{
-
-    /*
-
-        B1_Backrooms_Intro
-        B1_Backkrooms_01
-        B1_Backrooms_02
-        B1_Backrooms_03
-        B1_Backrooms_Holly
-   
-    */
+{   
     
     private static M_Level.LevelAssetHolder GetLevelAsset(string name, WKAssetDatabase database)
     {
@@ -80,13 +70,11 @@ public static class DatabaseModifier
                             new M_Subregion() {
                                 subregionName = "His Domain",
                                 name = "HisDomain",
-                                subregionHeight = 150,
-                                useLevelCount = true,
+                                useSubregionHeight = false,
+                                useLevelCount = false,
                                 announcementGroups = [],
                                 flagBlacklist = [],
                                 flagWhitelist = [],
-                                subregionMaxLength = 5,
-                                subregionMinLength = 3,
                                 subregionOrder = M_Subregion.SubregionOrder.standard,
                                 levelReferences = [
                                     GetLevelAsset("B1_Backrooms_01", __instance.baseDatabase),
@@ -98,60 +86,8 @@ public static class DatabaseModifier
                         ]
                     }
                 ],
-                transitionLevels = [
-                    new() {
-                        fromRegion = "Breakroom",
-                        levelReferences = [
-                            GetLevelAsset("M3_Habitation_Endless_Shaft_Start", __instance.baseDatabase)
-                        ],
-                        levels = [
-                            GetLevelAsset("M3_Habitation_Endless_Shaft_Start", __instance.baseDatabase).level
-                        ],
-                    },
-                ],
                 sessionEventLists = [],
             },
-            new M_Region() {
-                regionName = "Breakroom",
-                startLevelReferences = [
-                     GetLevelAsset("B1_Backrooms_Holly", __instance.baseDatabase)
-                ],
-                regionOrder = M_Region.RegionOrder.playlist,
-                regionHeight = 1f,
-                subregionGroups = [
-                    new M_Region.SubregionGroup() {
-                        subregions = [
-                            new M_Subregion() {
-                                subregionName = "Breakroom",
-                                name = "Breakroom",
-                                subregionHeight = 150,
-                                announcementGroups = [],
-                                flagBlacklist = [],
-                                flagWhitelist = [],
-                                subregionMaxLength = 5,
-                                subregionMinLength = 3,
-                                subregionOrder = M_Subregion.SubregionOrder.single,
-                                levelReferences = [
-                                    GetLevelAsset("M3_Habitation_Endless_Breakroom_01", __instance.baseDatabase),
-                                ],
-                                sessionEventLists = [],
-                            }
-                        ]
-                    }
-                ],
-                transitionLevels = [
-                    new() {
-                        fromRegion = "Service Shaft",
-                        levelReferences = [
-                            GetLevelAsset("M3_Habitation_Endless_Shaft_End", __instance.baseDatabase)
-                        ],
-                        levels = [
-                            GetLevelAsset("M3_Habitation_Endless_Shaft_End", __instance.baseDatabase).level
-                        ],
-                    },
-                ],
-                sessionEventLists = [],
-            }
         ];
 
         gm.gamemodeScene = endlessBase.gamemodeScene;
