@@ -10,20 +10,13 @@ public static class DatabaseModifier
 
     /*
 
-        M3_Habitation_Shaft_Intro
-        M3_Habitation_Endless_Shaft_Start
-        M3_Habitation_Shaft_01
-        M3_Habitation_Shaft_02
-        M3_Habitation_Shaft_03
-        M3_Habitation_Shaft_04
-        M3_Habitation_Shaft_05
-        M3_Habitation_Shaft_06
-        M3_Habitation_Shaft_07
-        M3_Habitation_Endless_Breakroom
+        B1_Backrooms_Intro
+        B1_Backkrooms_01
+        B1_Backrooms_02
+        B1_Backrooms_03
+        B1_Backrooms_Holly
    
     */
-
-    // i'm so scared
     
     private static M_Level.LevelAssetHolder GetLevelAsset(string name, WKAssetDatabase database)
     {
@@ -53,7 +46,7 @@ public static class DatabaseModifier
         M_Gamemode gm = ScriptableObject.CreateInstance<M_Gamemode>();
         gm.allowAchievements = false;
         gm.allowCheatedScores = false;
-        gm.allowCheats = true;
+        gm.allowCheats = false;
         gm.allowLeaderboardScoring = false;
         gm.steamLeaderboardName = "";
         gm.allowHeightAchievements = true;
@@ -62,24 +55,22 @@ public static class DatabaseModifier
         gm.modeType = M_Gamemode.GameType.standard;
         gm.capsuleName = "";
         gm.capsuleArt = endlessBase2.capsuleArt;
-        gm.gamemodeName = "Endless Service Shaft";
-        gm.introText = "ONLY SERVICE SHAFT";
+        gm.gamemodeName = "Cheatrooms";
+        gm.introText = "";
         gm.isEndless = true;
-        gm.hasPerks = true;
+        gm.hasPerks = false;
         gm.hasRevives = false;
-        gm.name = "GM_Endless_ServiceShaft";
+        gm.name = "GM_Cheatrooms";
         gm.newGameText = "Start Run";
         
         gm.startItems = [
-            new M_Gamemode.SpawnItem { itemid = "Item_Hammer", position = new Vector2(-0.4f, 0.0f) },
-            new M_Gamemode.SpawnItem { itemid = "Item_Flashlight", position = new Vector2(0.4f, 0.0f) }
         ];
         
         gm.regions = [
             new M_Region() {
-                regionName = "Service Shaft",
+                regionName = "Cheatrooms",
                 startLevelReferences = [
-                    GetLevelAsset("M3_Habitation_Shaft_Intro", __instance.baseDatabase)
+                    GetLevelAsset("B1_Backrooms_Intro", __instance.baseDatabase)
                 ],
                 regionOrder = M_Region.RegionOrder.playlist,
                 useRegionHeight = false,
@@ -87,8 +78,8 @@ public static class DatabaseModifier
                     new M_Region.SubregionGroup() {
                         subregions = [
                             new M_Subregion() {
-                                subregionName = "ServiceShaft",
-                                name = "ServiceShaft",
+                                subregionName = "His Domain",
+                                name = "HisDomain",
                                 subregionHeight = 150,
                                 useLevelCount = true,
                                 announcementGroups = [],
@@ -98,13 +89,9 @@ public static class DatabaseModifier
                                 subregionMinLength = 3,
                                 subregionOrder = M_Subregion.SubregionOrder.standard,
                                 levelReferences = [
-                                    GetLevelAsset("M3_Habitation_Shaft_01", __instance.baseDatabase),
-                                    GetLevelAsset("M3_Habitation_Shaft_02", __instance.baseDatabase),
-                                    GetLevelAsset("M3_Habitation_Shaft_03", __instance.baseDatabase),
-                                    GetLevelAsset("M3_Habitation_Shaft_04", __instance.baseDatabase),
-                                    GetLevelAsset("M3_Habitation_Shaft_05", __instance.baseDatabase),
-                                    GetLevelAsset("M3_Habitation_Shaft_06", __instance.baseDatabase),
-                                    GetLevelAsset("M3_Habitation_Shaft_07", __instance.baseDatabase),
+                                    GetLevelAsset("B1_Backrooms_01", __instance.baseDatabase),
+                                    GetLevelAsset("B1_Backrooms_02", __instance.baseDatabase),
+                                    GetLevelAsset("B1_Backrooms_03", __instance.baseDatabase)
                                 ],
                                 sessionEventLists = [],
                             }
@@ -126,7 +113,9 @@ public static class DatabaseModifier
             },
             new M_Region() {
                 regionName = "Breakroom",
-                startLevelReferences = [],
+                startLevelReferences = [
+                     GetLevelAsset("B1_Backrooms_Holly", __instance.baseDatabase)
+                ],
                 regionOrder = M_Region.RegionOrder.playlist,
                 regionHeight = 1f,
                 subregionGroups = [
