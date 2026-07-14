@@ -30,7 +30,7 @@ public static class DatabaseModifier
     {
         if (added) return;
         
-        M_Gamemode endlessBase = __instance.baseDatabase.gamemodeAssets.First((x) => x.name == "Region_Endless_Cheatrooms");
+        M_Gamemode endlessBase = __instance.baseDatabase.gamemodeAssets.First((x) => x.name == "GM_Cheatrooms");
 
         M_Gamemode endlessBase = ScriptableObject.CreateInstance<M_Gamemode>();
         gm.allowAchievements = false;
@@ -108,7 +108,7 @@ public static class DatabaseModifier
         gm.gamemodeObjects = endlessBase.gamemodeObjects;
         gm.unlockHint = endlessBase.unlockHint;
 
-        __instance.baseDatabase.gamemodeAssets.Add(gmD);
+        __instance.baseDatabase.gamemodeAssets.Add(gm);
         Plugin.endlessServiceShaftGamemode = gm;
 
         added = true;
